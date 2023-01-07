@@ -33,14 +33,21 @@ function recipe(obj) {
 }
 
 function test1() {
+  let h3Tag = document.createElement('h3');
+  h3Tag.textContent = '1번문제'
+  document.body.appendChild(h3Tag);
+  
   let result; 
   for (let i = 0; i < data.length; i++) {
     result = new recipe(data[i])
-    document.write("breadType : " + result.breadType + "</br>" +
+    let divTag = document.createElement('div');
+    divTag.innerHTML ="breadType : " + result.breadType + '</br>' +
       "recipe</br>" +
       "flour : " + result.flour +"</br>" +
       "water : " + result.water + "</br>" + 
-      result.breadType + " : " + result[result.breadType] + '</br></br>');
+      result.breadType + " : " + result[result.breadType] + '</br></br>';
+  
+     document.body.appendChild(divTag);
   }
 }
 
