@@ -11,57 +11,50 @@ const initial = [
     [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
-const result = [];
 
-const test5 = (arr) => {
-    let dx = [-1, 0, 1, 0];
-    let dy = [0, 1, 0, -1];
-    for (let i = 0; i < arr.length; i++) {
-        console.log(arr[i])
-        // result.push(arr[i])
-
-        let sum = 0;
-        for (let j = 0; j < arr.length; j++) {
-            for (let k = 0; k < 4; k++) {
-                let nx = i + dx[k];
-                let ny = j + dy[k];
-            
-                if (
-                    nx >= 0 &&
-                    nx < arr.length &&
-                    ny >= 0 &&
-                    ny < arr.length
-                    // &&
-                    // arr[nx][ny] >= arr[i][j]
-                )
-                // {
-                //     result[i].push(arr[i][j])
-                //     break
-                // }
-                    
-                {
-                    if (arr[i][j] == arr[nx + 1][ny]) {
-                        sum++
-                    } if (arr[i][j] == arr[nx - 1][ny]) {
-                        sum++
-                    } if (arr[i][j] == arr[nx][ny + 1]) {
-                        sum++
-                    } if (arr[i][j] == arr[nx][ny - 1]) {
-                        sum++
-                        // console.log(sum)
-                    }
+const test5 = (initial) => {
+    const result = [];
+    let length = initial.length;
+    for (let i = 0; i < length; i++) {
+        let arr = [];
+        for (let j = 0; j < length; j++) {
+            let sum = 0;
+            if (i - 1 < 0 ||
+                i + 1 >= length ||
+                j - 1 < 0 ||
+                j + 1 >= length) {
+                // arr.push(initial[i][j])
+                initial[i][j] = initial[i][j]
+            }
+            else {
+                if (initial[i][j] <= initial[i + 1][j] && initial[i][j] >0) {
+                   sum ++ 
+                }if (initial[i][j] <= initial[i - 1][j]&& initial[i][j] >0) {
+                   sum ++ 
+                }if (initial[i][j] <= initial[i][j-1]&& initial[i][j] >0) {
+                   sum ++ 
+                }if (initial[i][j] <= initial[i][j+1]&& initial[i][j] >0) {
+                    sum++ 
                 }
+                
+            }
+            if (sum == 4) {
+                    console.log(i,j,initial[i][j])
+                    // arr.push(initial[i][j]+1)
+                     initial[i][j] = ++initial[i][j]
+            } else {
+                // arr.push(initial[i][j])
+                    initial[i][j] = initial[i][j]
             }
         }
-        if (sum === 4) {
-            arr[i][j]++
-            result[i].push(1)
-        }
+        // result.push(arr)
     }
-    console.log(result)
+    console.log(initial)
 }
 
 test5(initial)
+
+
 //let arr = [n][n];
 // const arr = (n) => {
 //   return [n][n]
