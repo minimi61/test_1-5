@@ -15,7 +15,8 @@ const main_test4 = () => {
      h3Tag.textContent = '4번문제'
      document.body.appendChild(h3Tag);
 
-     let result = factorial_test4(1000)
+    let result = factorial_test4(1000)
+    console.log(result)
      divTag.innerHTML = result
      document.body.appendChild(divTag);
 }
