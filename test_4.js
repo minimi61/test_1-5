@@ -3,10 +3,7 @@ const factorial_test4 = (n,acc=1) => {
          return acc
      }
      return factorial_test4(n-1, n*acc)
-    //const cal = (n, acc) => {
-    //    return (n === 1 ? acc : factorial(n - 1, n * acc))
-   // }
-   // return cal(n,1)
+
 }
 
 const main_test4 = () => {
@@ -24,4 +21,3 @@ const main_test4 = () => {
 main_test4()
 
 
-//https://ko.javascript.info/recursion
